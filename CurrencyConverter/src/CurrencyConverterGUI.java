@@ -4,6 +4,7 @@ import java.awt.event.*;
 import java.net.*;
 
 
+
 abstract class CurrencyConverter {
     public double rate;
 
@@ -11,9 +12,10 @@ abstract class CurrencyConverter {
 
     abstract double convert(double amount) ;
 
-    abstract String getCurrencyName();
+//    abstract String getCurrencyName();
 }
-public class CurrencyConverterGUI extends JFrame {
+
+public class CurrencyConverterGUI extends JFrame implements ActionListener{
     private static final String API_KEY = "b84ec73e3c8d5bc6bb471a88";
     private static final String API_ENDPOINT = "https://v6.exchangerate-api.com/v6/b84ec73e3c8d5bc6bb471a88/latest/USD";
     public static String[] CURRENCIES = {"USD", "EUR", "GBP", "JPY", "CAD", "AUD", "NZD", "CHF", "HKD", "SGD"};
@@ -24,7 +26,6 @@ public class CurrencyConverterGUI extends JFrame {
     public static JComboBox<String> fromCurrencyBox,toCurrencyBox;
     public static JTextField AmountField;
     public static JPanel p;
-
 
     public static void main(String[] args) {
         f = new JFrame("CURENCIO");
@@ -55,7 +56,7 @@ public class CurrencyConverterGUI extends JFrame {
         p.setLocation(300, 150);
 
         JButton converterButton = new JButton("Convert");
-        converterButton.setBackground(Color.BLUE);
+        converterButton.setBackground(Color.RED);
         converterButton.setBounds(10, 220, 280, 40);
 
         f.add(amountLabel);
@@ -68,6 +69,20 @@ public class CurrencyConverterGUI extends JFrame {
         f.add(p);
         f.setVisible(true);
     }
+    public void actionPerformed(ActionEvent e) {
+        // code to handle button click event goes here
+
+    }
+    public static class ExchangeRate extends CurrencyConverter{
+        @Override
+        void setRate(double rate) {}
+
+        @Override
+        double convert(double amount) {
+            return 0;
+        }
+    }
 }
+
 
 
