@@ -7,13 +7,9 @@ import java.net.*;
 abstract class CurrencyConverter {
     public double rate;
 
-    public void setRate(double rate) {
-        this.rate = rate;
-    }
+    abstract void setRate(double rate);
 
-    public double convert(double amount) {
-        return amount * rate;
-    }
+    abstract double convert(double amount) ;
 
     abstract String getCurrencyName();
 }
