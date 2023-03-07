@@ -28,7 +28,6 @@ public class CurrencyConverterGUI extends JFrame implements ActionListener {
             "VUV", "WST", "XAF", "XCD", "XDR", "XOF", "XPF", "YER", "ZAR", "ZMW",
             "ZWL"
     };
-    public static final double[] RATES = new double[CURRENCIES.length];
 
     public static JFrame f;
     public static JLabel amountLabel, fromLabel, toLabel, resultLabel;
@@ -100,7 +99,7 @@ public class CurrencyConverterGUI extends JFrame implements ActionListener {
         System.out.println(conversion_rates.get(fromCurrency));
         double rateFrom = conversion_rates.get(fromCurrency).getAsDouble();
         double rateTo = conversion_rates.get(toCurrency).getAsDouble();
-        return (1/rateFrom)*rateTo;
+        return amount*(1/rateFrom)*rateTo;
     }
 
     public void actionPerformed(ActionEvent e) {
@@ -120,7 +119,7 @@ public class CurrencyConverterGUI extends JFrame implements ActionListener {
             resultLabel.setText(String.format("%.2f %s = %.2f %s", amount, fromCurrency, result, toCurrency));
             resultLabel.setFont(new Font("Arial", Font.BOLD, 16));
             resultLabel.setForeground(Color.BLACK);
-            resultLabel.setBounds(40, 270, 280, 20);
+            resultLabel.setBounds(45, 270, 280, 20);
             f.add(resultLabel);
             f.revalidate();
             f.repaint();
