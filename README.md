@@ -1,5 +1,5 @@
 # Currency Converter - Java Mini Project
-Currency Converter is a Java mini project created for my college project. The project uses Java programming language and an Exchange Rate API to convert currency rates.
+Currencio is a Java mini project created for my college project. The project uses Java programming language and an Exchange Rate API to convert currency rates.
 
 ## Project Description
 Currency Converter is a simple and user-friendly project that allows users to convert currency rates from one currency to another. The project retrieves live exchange rate data from the Exchange Rate API and uses Java to perform the necessary calculations to convert the currencies.
