@@ -119,7 +119,7 @@ public class CurrencyConverterGUI extends JFrame implements ActionListener {
             resultLabel.setText(String.format("%.2f %s = %.2f %s", amount, fromCurrency, result, toCurrency));
             resultLabel.setFont(new Font("Arial", Font.BOLD, 16));
             resultLabel.setForeground(Color.BLACK);
-            resultLabel.setBounds(45, 270, 280, 20);
+            resultLabel.setBounds(45, 270, 280, );
             f.add(resultLabel);
             f.revalidate();
             f.repaint();
@@ -128,5 +128,28 @@ public class CurrencyConverterGUI extends JFrame implements ActionListener {
     }
 }
 
+ public void Decrypt(ActionEvent e) {
+        String s = e.getActionCommand();
+        if (s.equals("Convert")) {
+            double amount = Double.parseDouble(AmountField.getText());
+            String fromCurrency = (String) fromCurrencyBox.getSelectedItem();
+            String toCurrency = (String) toCurrencyBox.getSelectedItem();
+            double result = 0;
+            try {
+                result = convert(amount, fromCurrency, toCurrency);
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
 
+
+            resultLabel.setText(String.format("%.2f %s = %.2f %s", amount, fromCurrency, result, toCurrency));
+            resultLabel.setFont(new Font("Arial", Font.BOLD, 16));
+            resultLabel.setForeground(Color.BLACK);
+            resultLabel.setBounds(45, 270, 280, );
+            f.add(resultLabel);
+            f.revalidate();
+            f.repaint();
+        }
+
+    }
 
